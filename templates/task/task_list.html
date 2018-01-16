@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for task in task_list %}
+        <div class="task-div" style="background-color: rgba(52, 58, 64, 0.6); float: left; padding: 2%; margin: 2%; max-width: 28%;">
+            <h2 style="border-left: 3px solid #007bff; padding-left: 3%">{{ task.title }}</h2>
+            <br>
+            <p style="font-family: 'Gloria Hallelujah', cursive;">{{ task.description }}</p>
+            <p style="">{{ task.remark.text }}</p>
+            <p style="float: right">{{ task.date }}</p>
+            <a href="{% url 'task:delete_task' pk=task.pk %}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            <a href="{% url 'task:update_task' pk=task.pk %}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="width: 30%; background-color: rgba(52, 58, 64, 0.6); padding: 2%; margin-top: 10%">
+            <h3>Welcome! Please Log In</h3>
+            <form method="post" action="">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input class="btn btn-primary" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+{% endblock %}
